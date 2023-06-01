@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    
+    
+}
+
+<!DOCTYPE html>
+<html class="loading" lang="en">
+<head>
+    <script type="text/javascript">
+		
+    </script>
+</head>
+<body>
+    <!-- BEGIN : Main Content-->
+    @RenderBody()
+    <!-- BEGIN VENDOR JS-->
+    <script src="~/app-assets/vendors/js/vendors.min.js"></script>
+    <script src="~/app-assets/vendors/js/switchery.min.js"></script>
+    @*<script src="/app-assets/vendors/js/core/bootstrap.min.js"></script>
+        <script src="/app-assets/vendors/js/jquery-ui.min.js"></script>*@
+    <!-- BEGIN VENDOR JS-->
+    <!-- BEGIN PAGE VENDOR JS-->
+    <script src="~/app-assets/vendors/js/chartist.min.js"></script>
+    <script src="~/app-assets/vendors/js/sweetalert2.all.min.js"></script>
+    <script src="~/app-assets/vendors/js/toastr.min.js"></script>
+    <script src="~/app-assets/vendors/js/jqBootstrapValidation.js"></script>
+    <script src="~/app-assets/vendors/js/select2.full.min.js"></script>
+    <!-- END PAGE VENDOR JS-->
+    <!-- BEGIN APEX JS-->
+    <script src="~/app-assets/js/core/app-menu.js"></script>
+    <script src="~/app-assets/js/core/app.js"></script>
+    <script src="~/app-assets/js/notification-sidebar.js"></script>
+    <script src="~/app-assets/js/customizer.js"></script>
+    <script src="~/app-assets/js/scroll-top.js"></script>
+    <!-- END APEX JS-->
+    <!-- BEGIN PAGE LEVEL JS-->
+    <script src="~/app-assets/js/dashboard1.js"></script>
+    <script src="~/app-assets/js/ex-component-sweet-alerts.js"></script>
+    <script src="~/app-assets/js/form-validation.js"></script>
+    <script src="~/app-assets/js/ex-component-toastr.js"></script>
+    <script src="~/app-assets/js/components-modal.min.js"></script>
+    <script src="~/app-assets/js/select2.js"></script>
+    <!-- END PAGE LEVEL JS-->
+    <!-- BEGIN: Custom CSS-->
+    <script src="~/assets/js/scripts.js"></script>
+    <!-- END: Custom CSS-->
+    <!-- BEGIN: Revel infragistic-->
+    @*<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>*@
+    <script src="~/lib/dayjs/dayjs.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpcuViSxzlScwOBZy5ln5iIvRl9TYn4y0&libraries=drawing,visualization"></script>
+    <script src="~/Reveal/infragistics.reveal.js" asp-append-version="true"></script>
+    <!-- END: Revel infragistic-->
+    @await RenderSectionAsync("Scripts", required: false)
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

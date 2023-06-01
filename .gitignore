@@ -1,0 +1,15 @@
+
+node_modules
+obj
+
+/.vs/slnx.sqlite
+/Stadis.Intelligence.Data/bin/Debug/netstandard2.0
+/Stadis.Intelligence.Service/bin/Debug/netstandard2.0
+/Stadis.Intelligence.Web/bin/Debug/net5.0
+/.vs/Stadis.Intelligence
+/.vs/imspos-revealbi-webapp/v16
+/.vs/VSWorkspaceState.json
+/Stadis.Intelligence.Web/Dashboards
+/Stadis.Intelligence.Web/bin/Release/net5.0
+/.vs/Dashboard/v16
+/Stadis.Intelligence.Web/wwwroot/App_Data/RVLocalFiles

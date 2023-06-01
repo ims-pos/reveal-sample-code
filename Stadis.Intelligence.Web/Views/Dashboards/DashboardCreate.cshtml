@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor;
+
+@{
+
+    
+
+
+    ViewData["Title"] = "DashboardCreate";
+    Layout = "~/Views/Shared/_LayoutWithNoCss.cshtml";
+    ViewData["Title"] = "Dashboard Create";
+    
+    IEnumerable<Stadis.Intelligence.Data.Domian.CompanyDataSource> companyDataSources = ViewData["CompanyDataSource"] as IEnumerable<Stadis.Intelligence.Data.Domian.CompanyDataSource>;
+    
+    
+}
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@section Scripts
+        {
+    <script type="text/javascript">
+        $("#revealView").width($(window).width() - 20).height($(window).height()-20);
+		var revealView = new $.ig.RevealView("#revealView");
+		revealView.startInEditMode = true;
+		revealView.dashboard = new $.ig.RVDashboard();
+        revealView.title = "CreateDashoard";
+
+		revealView.onDataSourcesRequested = function (callback) {
+            var dataSource = new Array();
+            var excelDsiArray = new Array();
+
+             
+
+			@foreach (var data in companyDataSources) {
+				// Databse from DB according to user company...
+				@:var mergData = "@data.DataSourceName" + "-" + "@data.SQLUserID"+"-"+"@data.SQLPassword";
+				@:var sqlDs = new $.ig.RVSqlServerDataSource();
+				@:sqlDs.id = "@data.Id";
+				@:sqlDs.host = "@data.SQLServerName";
+				@:sqlDs.port = @data.SQLPort;
+				@:sqlDs.database = "@data.SQLDataBaseName";
+				//@:sqlDs.title = "";
+				//@:sqlDs.subtitle = "@data.SQLPassword";
+				@:dataSource.push(sqlDs);
+				@:sqlDs = null;
+			}
+
+            
+            callback(new $.ig.RevealDataSources(dataSource, excelDsiArray, false));
+            //callback(new $.ig.RevealDataSources(googleDriveArray, [],  true)); //excelDsiArray, dataSource,
+		};
+    </script>
+}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<script>
+    window.addEventListener("resize", myFunction);
+    function myFunction() {
+        $("#revealView").width($(window).width() - 20).height($(window).height() - 20);
+    }
+</script>
+<style>
+    .button {
+        display: inline-block;
+        width: 70px;
+        height: 20px;
+        background: #007297;
+        padding: 7px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        line-height: 20px;
+        text-decoration: none;
+    }
+</style>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        <div class="row p-1">
+            
+        </div>
+        <div class="row">
+            <div id="revealView"></div>
+        </div>
+    </div>
+</body>
