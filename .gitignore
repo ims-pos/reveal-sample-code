@@ -9,7 +9,6 @@ obj
 /.vs/Stadis.Intelligence
 /.vs/imspos-revealbi-webapp/v16
 /.vs/VSWorkspaceState.json
-/Stadis.Intelligence.Web/Dashboards
 /Stadis.Intelligence.Web/bin/Release/net5.0
 /.vs/Dashboard/v16
 /Stadis.Intelligence.Web/wwwroot/App_Data/RVLocalFiles
