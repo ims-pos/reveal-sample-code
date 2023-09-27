@@ -12,3 +12,4 @@ obj
 /Stadis.Intelligence.Web/bin/Release/net5.0
 /.vs/Dashboard/v16
 /Stadis.Intelligence.Web/wwwroot/App_Data/RVLocalFiles
+Stadis.Intelligence.Web/bin/

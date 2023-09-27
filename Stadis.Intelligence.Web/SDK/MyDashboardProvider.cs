@@ -2,6 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Reveal.Sdk;
+using Reveal.Sdk.Data;
+using Reveal.Sdk.Data.Microsoft.SqlServer;
+using Reveal.Sdk.Data.PostgreSQL;
+using Reveal.Sdk.Data.Google.Drive;
+using Reveal.Sdk.Data.Rest;
 using System;
 using System.Web;
 using System.Collections.Generic;
@@ -117,16 +122,16 @@ namespace Stadis.Intelligence.Web.SDK
         {
             // string[] idValues = userId.Split(',');               ///Differentiate CompanyId and UserId
             string companyId = _httpContextAccessor.HttpContext.Session.GetString("CompanyId");
-            string strId = dataSource.Id.ToString();
+            string strId = "1";
             int id1 = 0;
-            var id = Int32.TryParse(strId, out id1);
+            var id = true;
             CompanyDataSource companyDataSource = new CompanyDataSource();
             if (id)
             {
                 companyDataSource.IsDeleted = false;
                 var query = "SELECT * FROM CompanyDataSource WHERE Id = @Id AND IsDeleted = @IsDeleted";
                 var parameters = new DynamicParameters();
-                parameters.Add("Id", dataSource.Id, DbType.Int32);
+                parameters.Add("Id", 5, DbType.Int32);
                 parameters.Add("IsDeleted", companyDataSource.IsDeleted, DbType.String);
                 using (var connection = CreateConnection())
                 {
@@ -148,24 +153,10 @@ namespace Stadis.Intelligence.Web.SDK
             //var connectionString = _httpContextAccessor.HttpContext.Session.GetString("ConnDetails");
             IRVDataSourceCredential userCredential = null;
 
-            if (dataSource is RVPostgresDataSource)
-            {
-                userCredential = new RVUsernamePasswordDataSourceCredential(companyDataSource.SQLUserID, companyDataSource.SQLPassword);
-            }
-            else if (dataSource is RVSqlServerDataSource)
-            {
+
                 // The "domain" parameter is not always needed and this depends on your SQL Server configuration. 
                 userCredential = new RVUsernamePasswordDataSourceCredential(companyDataSource.SQLUserID, companyDataSource.SQLPassword);
-            }
-            else if (dataSource is RVGoogleDriveDataSource)
-            {
-                var token = dataSource.Id;
-                userCredential = new RVBearerTokenDataSourceCredential(token, null);
-            }
-            else if (dataSource is RVRESTDataSource)
-            {
-                userCredential = new RVUsernamePasswordDataSourceCredential(); // Anonymous
-            }
+            
 
             return Task.FromResult<IRVDataSourceCredential>(userCredential);
         }

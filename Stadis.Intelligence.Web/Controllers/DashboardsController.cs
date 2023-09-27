@@ -17,7 +17,6 @@ using Stadis.Intelligence.Web.SDK;
 using Microsoft.JSInterop;
 using Stadis.Intelligence.Web.Models;
 using System.Text;
-using AdoNetCore.AseClient.Internal;
 
 namespace Stadis.Intelligence.Web.Controllers
 {
