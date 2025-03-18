@@ -31,9 +31,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.15.0" />
     <PackageReference Include="Npgsql" Version="7.0.2" />
-    <PackageReference Include="Reveal.Sdk.AspNetCore" Version="1.6.0" />
+    <PackageReference Include="Reveal.Sdk.AspNetCore" Version="1.7.3" />
     <PackageReference Include="Reveal.Sdk.Data.Google.Drive" Version="1.6.0" />
-    <PackageReference Include="Reveal.Sdk.Data.Microsoft.SqlServer" Version="1.6.0" />
+    <PackageReference Include="Reveal.Sdk.Data.Microsoft.SqlServer" Version="1.7.3" />
     <PackageReference Include="Reveal.Sdk.Data.PostgreSQL" Version="1.6.0" />
   </ItemGroup>
 
